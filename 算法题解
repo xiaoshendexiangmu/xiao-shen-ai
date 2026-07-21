@@ -1,0 +1,32 @@
+# Week 1 算法题解
+
+## Day 1 - 2026.7.21
+
+### 题目：1365. 有多少小于当前数字的数字
+
+**难度**：简单  
+**用时**：186ms  
+**击败**：12.24%（暴力解法，待优化）
+
+### 我的思路
+两个指针a和b，a固定，b遍历数组，
+统计比nums[a]小的数字个数。
+
+### 代码
+```python
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        result = []
+        for a in range(n):
+            count = 0
+            for b in range(n):
+                if a != b and nums[b] < nums[a]:
+                    count += 1
+            result.append(count)
+        return result
+
+
+
+**现在去建这两个文件，5分钟后回来。** 🎮
+
