@@ -28,5 +28,29 @@ class Solution:
 
 
 
-**现在去建这两个文件，5分钟后回来。** 🎮
+## Day 2 - 2026.7.22
+### 题目：283:移动零
+**难度**：简单  
+**用时**：3ms  
+**击败**：82.90%（双指针解法)
 
+### 我的思路
+设置双指针，i负责指向该放的位置，j负责找零元素
+找到就交换，i往前挪
+
+### 代码
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        n = len(nums)
+        i = 0
+        for j in range(n):
+            if nums[j] != 0:
+                temp = nums[i]
+                nums[i] = nums[j]
+                nums[j] = temp
+                i += 1
+##可以装逼的优化位置
+# Python装β写法（1行搞定）
+nums[i], nums[j] = nums[j], nums[i]
+i += 1
+但是我没看懂帮我解释一下吧。
