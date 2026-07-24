@@ -54,3 +54,60 @@ class Solution:
 nums[i], nums[j] = nums[j], nums[i]
 i += 1
 但是我没看懂帮我解释一下吧。
+
+## Day 3 - 2026.7.24
+### 题目：1:两数之和
+**难度**：简单  
+**用时**： 2167ms
+**击败**：5.02%
+
+### 我的思路
+设置两个循环，第一个循环控制第一个指针，从1到末尾，第二个循环控制第二个指针然后两个指针的数据进行相加，查看是否等于target
+如果等于就return
+
+### 代码
+
+from typing import List
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        i = 0
+        t = []
+    
+        n = len(nums)
+        for i in range(n):
+            for j in range(i + 1,n):
+                a =nums[i] + nums[j]
+                if a ==target:
+                    return [i,j]
+        return []
+
+时间复杂度是O(n²)
+要优化到o（n）要用到哈希表
+enumerate(nums) = "帮我一边遍历nums，一边报序号"。
+
+def two_sum(nums, target):
+    seen = {}  # 空字典，打算存 {数字: 下标}
+    
+    for i, num in enumerate(nums):
+        complement = target - num  # 我需要谁？
+        
+        if complement in seen:     # 卧槽，我之前见过它！
+            return [seen[complement], i]
+        
+        seen[num] = i              # 没见过？那把我自己存进去，等人来找我
+    
+    return []  # 找不到
+##找交集
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        set1 = set(nums1)
+        result = []
+        seen_in_result = set()
+        for num in nums2:
+            if num in set1 and num not in seen_in_result:
+
+                result.append(num)
+                seen_in_result.add(num)
+
+        return result
+
+
