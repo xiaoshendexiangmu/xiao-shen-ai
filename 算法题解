@@ -98,6 +98,7 @@ def two_sum(nums, target):
     
     return []  # 找不到
 ##找交集
+
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         set1 = set(nums1)
         result = []
@@ -109,5 +110,45 @@ def two_sum(nums, target):
                 seen_in_result.add(num)
 
         return result
+
+
+## Day 4 - 2026.7.25
+### 题目：二分查找
+**难度**：简单  
+**用时**： 0ms
+**击败**：100%
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        left = 0
+        right = len(nums) - 1
+        while left <= right:
+            mid = (left +right) // 2
+            if nums[mid] == target :
+                return mid
+            elif nums[mid] < target:
+                left = mid +1
+            else :
+                right = mid -1
+        return -1
+
+##时间复杂度
+O(1)   常数时间  →  查字典、数组按下标取值
+O(log n) 对数时间  →  二分查找（每次砍一半）
+O(n)   线性时间  →  遍历一次数组
+O(n log n)  →  高效排序（归并、快排）
+O(n²)  平方时间  →  两层 for 循环
+O(2ⁿ)  指数时间  →  斐波那契递归（别这么写！）
+快 ←————————————————————————————→ 慢
+O(1) < O(log n) < O(n) < O(n²) < O(2ⁿ)
+代码长这样	计算过程	时间复杂度
+a = b + c	1步	O(1)
+for i in range(n):	n步	O(n)
+for i in range(n): for j in range(n):	n×n = n²	O(n²)
+for i in range(n): for j in range(i, n):	约 n²/2 → n²	O(n²)
+while n > 0: n //= 2	每次砍半，砍 log₂n 次	O(log n)
+for i in range(n): while j < n: j *= 2	n × log n	O(n log n)
+
+##除以二要向下取整
 
 
