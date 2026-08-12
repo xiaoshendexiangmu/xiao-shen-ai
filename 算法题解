@@ -66,6 +66,34 @@ class Solution:
 nums[i], nums[j] = nums[j], nums[i]
 i += 1
 但是我没看懂帮我解释一下吧。
+enumerate = "遍历 + 自动报数"
+一句话：enumerate 让你循环的时候同时拿到"第几个"和"是什么"，不用自己数。
+没有 enumerate 时（土办法）
+python
+nums = ['a', 'b', 'c']
+i = 0
+for x in nums:          # 只拿到值
+    print(i, x)         # 下标还得自己数！
+    i = i + 1
+麻烦：你要下标还得手动 i = i + 1，容易忘。
+
+有 enumerate 时
+python
+
+nums = ['a', 'b', 'c']
+
+for i, x in enumerate(nums):
+    print(i, x)
+
+版本2代码
+python
+
+def moveZeroes(self, nums):
+    i = 0
+    for j, x in enumerate(nums):
+        if x:
+            nums[i], nums[j] = nums[j], nums[i]
+            i += 1
 
 ## Day 3 - 2026.7.24
 ### 题目：1:两数之和
